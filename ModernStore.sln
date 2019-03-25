@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModernStore.Console", "Mode
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModernStore.Shared", "ModernStore.Shared\ModernStore.Shared.csproj", "{68A7D6A4-328F-4C2C-815C-20A986CAEC3D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModernStore.Domain.Tests", "ModernStore.Domain.Tests\ModernStore.Domain.Tests.csproj", "{EFAE8490-28D7-4715-9B94-CED1669238F6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{68A7D6A4-328F-4C2C-815C-20A986CAEC3D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{68A7D6A4-328F-4C2C-815C-20A986CAEC3D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{68A7D6A4-328F-4C2C-815C-20A986CAEC3D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EFAE8490-28D7-4715-9B94-CED1669238F6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EFAE8490-28D7-4715-9B94-CED1669238F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EFAE8490-28D7-4715-9B94-CED1669238F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EFAE8490-28D7-4715-9B94-CED1669238F6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
