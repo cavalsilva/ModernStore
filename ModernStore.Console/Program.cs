@@ -1,6 +1,11 @@
-﻿using ModernStore.Domain.Entities;
+﻿using ModernStore.Domain.CommandHandlers;
+using ModernStore.Domain.Commands;
+using ModernStore.Domain.Entities;
+using ModernStore.Domain.Repositories;
 using ModernStore.Domain.ValueObjects;
 using System;
+using System.Collections;
+using System.Collections.Generic;
 
 namespace ModernStore
 {
@@ -8,37 +13,80 @@ namespace ModernStore
     {
         static void Main(string[] args)
         {
-            var name = new Name("Ricardo", "Silva");
-            var email = new Email("ricardocavalcantesilva@gmail.com");
-            var document = new Document("12345678911");
-            var user = new User("cavalsilva", "cavalsilva");
-            var customer = new Customer(name, email, document, user);
-            var mouse = new Product("Mouse", 299, "mouse.png", 25);
-            var mousePad = new Product("Mouse", 99, "mousepad.png", 25);
-            var teclado = new Product("Mouse", 599, "teclado.png", 25);
+            var command = new RegisterOrderCommand
+            {
+                Customer = Guid.NewGuid(),
+                DeliveryFee = 9,
+                Discount = 30,
+                Items = new List<RegisterOrderItemCommand>
+                {
+                    new RegisterOrderItemCommand
+                    {
+                        Product = Guid.NewGuid(),
+                        Quantity = 3
+                    }
+                }
+            };
 
-            Console.WriteLine($"Mouses: {mouse.QuantityOnHand}");
-            Console.WriteLine($"Mouse Pads: {mouse.QuantityOnHand}");
-            Console.WriteLine($"teclados: {mouse.QuantityOnHand}");
-
-            var order = new Order(customer, 8, 10);
-            order.AddItem(new OrderItem(mouse, 2));
-            order.AddItem(new OrderItem(mousePad, 2));
-            order.AddItem(new OrderItem(teclado, 2));
-
-            Console.WriteLine($"Número do Pedido: {order.Number }");
-            Console.WriteLine($"Data: {order.CreateDate :dd/MM/yyyy}");
-            Console.WriteLine($"Desconto: {order.Discount} ");
-            Console.WriteLine($"Taxa de Entrega: {order.DeliveryFree}");
-            Console.WriteLine($"Sub Total: {order.SubTotal()}");
-            Console.WriteLine($"Total: {order.Total()}");
-            Console.WriteLine($"Cliente: {order.Customer.ToString()}");
-
-            Console.WriteLine($"Mouses: {mouse.QuantityOnHand}");
-            Console.WriteLine($"Mouse Pads: {mouse.QuantityOnHand}");
-            Console.WriteLine($"teclados: {mouse.QuantityOnHand}");
+            GenerateOrder(
+                new FakeCustomerRepository(), 
+                new FakeProductRepository(), 
+                new FakeOrderRepository(),
+                command);
 
             Console.ReadKey();
         }
+
+        public static void GenerateOrder(
+            ICustomerRepository customerRepository,
+            IProductRepository productRepository,
+            IOrderRepository orderRepository,
+            RegisterOrderCommand command)
+        {
+            var handler = new OrderCommandHandler(
+                customerRepository, 
+                productRepository, 
+                orderRepository);
+
+            handler.Handle(command);
+
+            if(handler.IsValid())
+                Console.WriteLine("Pedido cadastrado com sucesso!");
+        }
     }
+
+    public class FakeProductRepository : IProductRepository
+    {
+        public Product Get(Guid id)
+        {
+            return new Product("Mouse", 299, "mouse.png", 50);
+        }
+    }
+
+    public class FakeCustomerRepository : ICustomerRepository
+    {
+        public Customer Get(Guid id)
+        {
+            return null;
+        }
+
+        public Customer GetByUserId(Guid id)
+        {
+            return new Customer(
+                new Name("Ricardo", "Silva"),
+                new Email("ricardocavalcantesilva@gmail.com"),
+                new Document("35018655038"),
+                new User("cavalsilva", "ric456")
+                );
+        }
+    }
+
+    public class FakeOrderRepository : IOrderRepository
+    {
+        public void Save(Order order)
+        {
+            
+        }
+    }
+
 }
