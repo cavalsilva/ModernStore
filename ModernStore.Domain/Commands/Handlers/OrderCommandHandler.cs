@@ -1,15 +1,10 @@
 ﻿using FluentValidator;
-using ModernStore.Domain.Commands;
+using ModernStore.Domain.Commands.Results;
 using ModernStore.Domain.Entities;
 using ModernStore.Domain.Repositories;
 using ModernStore.Shared.Commands;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace ModernStore.Domain.CommandHandlers
+namespace ModernStore.Domain.Commands.Handlers
 {
     public class OrderCommandHandler : Notifiable, ICommandHandler<RegisterOrderCommand>
     {

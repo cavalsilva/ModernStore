@@ -1,8 +1,8 @@
-﻿using ModernStore.Shared.Commands;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using ModernStore.Shared.Commands;
 
-namespace ModernStore.Domain.Commands
+namespace ModernStore.Domain.Commands.Results
 {
     public class RegisterOrderCommand : ICommand
     {
