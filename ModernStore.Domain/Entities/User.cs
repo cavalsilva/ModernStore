@@ -4,6 +4,8 @@ namespace ModernStore.Domain.Entities
 {
     public class User
     {
+        protected User() { }
+
         public User(string username, string password)
         {
             Id = Guid.NewGuid();

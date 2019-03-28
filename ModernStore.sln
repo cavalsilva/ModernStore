@@ -9,7 +9,15 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModernStore.Console", "Mode
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModernStore.Shared", "ModernStore.Shared\ModernStore.Shared.csproj", "{68A7D6A4-328F-4C2C-815C-20A986CAEC3D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModernStore.Domain.Tests", "ModernStore.Domain.Tests\ModernStore.Domain.Tests.csproj", "{EFAE8490-28D7-4715-9B94-CED1669238F6}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ModernStore.Domain.Tests", "ModernStore.Domain.Tests\ModernStore.Domain.Tests.csproj", "{EFAE8490-28D7-4715-9B94-CED1669238F6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ModernStore.Infra", "ModernStore.Infra\ModernStore.Infra.csproj", "{8A1D166A-A6BB-4B09-937A-6A7D9B732C46}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "1 - API", "1 - API", "{52572CE5-EBA2-4337-AD05-12A5762C4134}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "2 - Domain", "2 - Domain", "{86A74403-98EC-4636-8F6D-3F1F4A25CDF3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "3 - Infra", "3 - Infra", "{DEA24A9F-A9A8-4828-B6E2-8FBCC8CC9931}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,9 +41,19 @@ Global
 		{EFAE8490-28D7-4715-9B94-CED1669238F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EFAE8490-28D7-4715-9B94-CED1669238F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EFAE8490-28D7-4715-9B94-CED1669238F6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8A1D166A-A6BB-4B09-937A-6A7D9B732C46}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8A1D166A-A6BB-4B09-937A-6A7D9B732C46}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8A1D166A-A6BB-4B09-937A-6A7D9B732C46}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8A1D166A-A6BB-4B09-937A-6A7D9B732C46}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{B380A74A-C9CE-4E96-9C99-61C68C613502} = {86A74403-98EC-4636-8F6D-3F1F4A25CDF3}
+		{68A7D6A4-328F-4C2C-815C-20A986CAEC3D} = {86A74403-98EC-4636-8F6D-3F1F4A25CDF3}
+		{EFAE8490-28D7-4715-9B94-CED1669238F6} = {86A74403-98EC-4636-8F6D-3F1F4A25CDF3}
+		{8A1D166A-A6BB-4B09-937A-6A7D9B732C46} = {DEA24A9F-A9A8-4828-B6E2-8FBCC8CC9931}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {949045C5-CF49-4C88-8524-8A53C673096D}
